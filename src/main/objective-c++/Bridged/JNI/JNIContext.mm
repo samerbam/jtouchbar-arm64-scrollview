@@ -11,7 +11,7 @@
 #include "JNIContext.h"
 
 #import <Cocoa/Cocoa.h>
-#import <JavaVM/JavaVM.h>
+#import <JavaNativeFoundation/JavaNativeFoundation.h>
 
 #include <map>
 
