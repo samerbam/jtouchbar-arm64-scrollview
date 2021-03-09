@@ -12,6 +12,10 @@ package com.thizzer.jtouchbar.item.view;
 
 import com.thizzer.jtouchbar.slider.SliderActionListener;
 
+/**
+ * @deprecated in favor of {@link com.thizzer.jtouchbar.item.SliderTouchBarItem}
+ */
+@Deprecated
 public class TouchBarSlider extends TouchBarView {
 
     private double _minValue;

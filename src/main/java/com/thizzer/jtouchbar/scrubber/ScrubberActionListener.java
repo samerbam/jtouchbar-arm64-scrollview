@@ -12,7 +12,7 @@ package com.thizzer.jtouchbar.scrubber;
 
 import com.thizzer.jtouchbar.item.view.TouchBarScrubber;
 
-public abstract interface ScrubberActionListener {
+public interface ScrubberActionListener {
 
-    void didSelectItemAtIndex(TouchBarScrubber scrubber, long index);
+    void didSelectItemAtIndex(TouchBarScrubber scrubber, int index);
 }

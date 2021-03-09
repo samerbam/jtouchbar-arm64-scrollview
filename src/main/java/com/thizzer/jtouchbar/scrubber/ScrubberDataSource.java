@@ -17,5 +17,5 @@ public interface ScrubberDataSource {
 
 	int getNumberOfItems(TouchBarScrubber scrubber);
     
-    ScrubberView getViewForIndex(TouchBarScrubber scrubber, long index);
+    ScrubberView getViewForIndex(TouchBarScrubber scrubber, int index);
 }

@@ -13,7 +13,7 @@ package com.thizzer.jtouchbar.common;
 public class ImageName {
 	
 	/**
-	 * Naming for the following 4 variables is probably under Apple's copyright
+	 * Naming for the following variables is probably under Apple's copyright
 	 * 
 	 * Copyright (c) 2015-2018, Apple Inc.
      * All rights reserved.

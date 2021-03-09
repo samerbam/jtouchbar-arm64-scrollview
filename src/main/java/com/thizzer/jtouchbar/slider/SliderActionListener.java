@@ -12,7 +12,11 @@ package com.thizzer.jtouchbar.slider;
 
 import com.thizzer.jtouchbar.item.view.TouchBarSlider;
 
-public abstract interface SliderActionListener {
+/**
+ * @deprecated with {@link TouchBarSlider}
+ */
+@Deprecated
+public interface SliderActionListener {
 
     void sliderValueChanged(TouchBarSlider slider, double value);
 }

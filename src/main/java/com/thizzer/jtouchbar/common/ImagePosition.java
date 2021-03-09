@@ -32,5 +32,11 @@ public class ImagePosition {
 	
 	// The image overlaps the title.
 	public static final int OVERLAPS = 6;
+
+	// The image is leading the title.
+	public static final int LEADING = 7;
+
+	//The image is trailing the title.
+	public static final int TRAILING = 8;
 	
 }
