@@ -1,13 +1,17 @@
-package com.thizzer.jtouchbar.item.view;
+package com.thizzer.jtouchbar.item;
 
-public class TouchBarStepper extends TouchBarView {// TODO: 3/8/21 Find whether this is worse than item ver.
+public class StepperTouchBarItem extends TouchBarItem{
 
     private double _minValue;
     private double _maxValue;
 
     private double _increment;
 
-    private boolean _valueWraps;
+    private StepperActionListener _action;
+
+    public StepperTouchBarItem(String identifier) {
+        super(identifier);
+    }
 
     public double getMinValue() {
         return _minValue;
@@ -36,8 +40,16 @@ public class TouchBarStepper extends TouchBarView {// TODO: 3/8/21 Find whether 
         update();
     }
 
+    public StepperActionListener getAction() {
+        return _action;
+    }
+
+    public void setAction(StepperActionListener action) {
+        _action = action;
+    }
+
     @FunctionalInterface
-    private interface StepperActionListener {
-        void onStepperChanged(TouchBarStepper stepper, double value);
+    public interface StepperActionListener {
+        void onStepperChanged(StepperTouchBarItem stepper, double value);
     }
 }
