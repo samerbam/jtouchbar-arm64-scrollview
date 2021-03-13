@@ -11,7 +11,6 @@
 #include "JNIContext.h"
 
 #import <Cocoa/Cocoa.h>
-#import <JavaNativeFoundation/JavaNativeFoundation.h>
 
 #include <map>
 
@@ -476,6 +475,68 @@ image_t JNIContext::CallImageMethod(JNIEnv* env, jobject target, const std::stri
     env->DeleteLocalRef(javaImage);
     
     return image;
+}
+
+std::vector<std::string> *JNIContext::CallStringListMethod(JNIEnv *env, jobject target, const string &method) {
+    if(target == nullptr) {
+        return nullptr;
+    }
+
+    jobject list = JNIContext::CallObjectMethod(env, target, method, "java/util/List");
+    if(list == nullptr) {
+        return nullptr;
+    }
+
+    jclass strCls = env->FindClass("java/lang/String");
+    int32_t size = JNIContext::CallIntMethod(env, list, "size");
+
+    std::vector<std::string> *vec = new std::vector<std::string>();
+
+    for(int i = 0;i < size;i++) {
+        jobject el = JNIContext::CallObjectMethod(env, list, "get", "java/lang/Object", "I",i);
+        if(el != nullptr && env->IsInstanceOf(el, strCls)) {
+            const char* str = env->GetStringUTFChars((jstring)el, 0);
+            if(str != nullptr) {
+                vec->push_back(std::string(str));
+                env->ReleaseStringUTFChars((jstring)el, str);
+            }
+        }
+        env->DeleteLocalRef(el);
+    }
+    env->DeleteLocalRef(list);
+
+    return vec;
+}
+
+std::vector<image_t> *JNIContext::CallImageListMethod(JNIEnv *env, jobject target, const string &method) {
+    if(target == nullptr) {
+        return nullptr;
+    }
+
+    jobject list = JNIContext::CallObjectMethod(env, target, method, "java/util/List");
+    if(list == nullptr) {
+        return nullptr;
+    }
+
+    jclass imgCls = env->FindClass("com/thizzer/jtouchbar/common/Image");
+    int32_t size = JNIContext::CallIntMethod(env, list, "size");
+
+    std::vector<image_t> *vec = new std::vector<image_t>();
+
+    for(int i = 0;i < size;i++) {
+        jobject el = JNIContext::CallObjectMethod(env, list, "get", "java/lang/Object", "I",i);
+        if(el != nullptr && env->IsInstanceOf(el, imgCls)) {
+            image_t image;
+            image.name = JNIContext::CallStringMethod(env, el, "getName");
+            image.path = JNIContext::CallStringMethod(env, el, "getPath");
+            image.data = JNIContext::CallByteArrayMethod(env, el, "getData");
+            vec->push_back(image);
+        }
+        env->DeleteLocalRef(el);
+    }
+    env->DeleteLocalRef(list);
+
+    return vec;
 }
 
 void JNIContext::HandleExceptions(JNIEnv* env) {

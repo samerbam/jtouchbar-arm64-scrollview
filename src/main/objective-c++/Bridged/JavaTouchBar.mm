@@ -11,8 +11,13 @@
 #import "JavaTouchBar.h"
 
 #import "JNIContext.h"
+
 #import "JavaGroupTouchBarItem.h"
 #import "JavaPopoverTouchBarItem.h"
+#import "JavaSliderTouchBarItem.h"
+#import "JavaStepperTouchBarItem.h"
+#import "JavaColorPickerTouchBarItem.h"
+#import "JavaCandidateListTouchBarItem.h"
 
 @interface JavaTouchBar() {
     NSString *_customizationIdentifier;
@@ -84,6 +89,10 @@
 
             jclass groupItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/GroupTouchBarItem");
             jclass popoverItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/PopoverTouchBarItem");
+            jclass sliderItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/SliderTouchBarItem");
+            jclass stepperItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/StepperTouchBarItem");
+            jclass colorPickerItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/ColorPickerTouchBarItem");
+            jclass candidateListItemCls = JNIContext::GetOrFindClass(env, "com/thizzer/jtouchbar/item/CandidateListTouchBarItem");
             
             while (env->CallBooleanMethod(touchBarItemIterator, hasNextMid)) {
                 if(touchBarItemIterator == nullptr) {
@@ -103,12 +112,24 @@
                 else if(popoverItemCls != nullptr && env->IsInstanceOf(touchBarItem, popoverItemCls)) {
                     item = [[JavaPopoverTouchBarItem alloc] init];
                 }
+                else if(sliderItemCls != nullptr && env->IsInstanceOf(touchBarItem, sliderItemCls)) {
+                    item = [[JavaSliderTouchBarItem alloc] init];
+                }
+                else if(stepperItemCls != nullptr && env->IsInstanceOf(touchBarItem, stepperItemCls)) {
+                    item = [[JavaStepperTouchBarItem alloc] init];
+                }
+                else if(colorPickerItemCls != nullptr && env->IsInstanceOf(touchBarItem, colorPickerItemCls)) {
+                    item = [[JavaColorPickerTouchBarItem alloc] init];
+                }
+                else if(candidateListItemCls != nullptr && env->IsInstanceOf(touchBarItem, candidateListItemCls)) {
+                    item = [[JavaCandidateListTouchBarItem alloc] init];
+                }
 
                 if(item == nil) {
                     item = [[JavaTouchBarItem alloc] init];
                 }
 
-                item.javaRepr = touchBarItem;
+                [item setJavaRepr:touchBarItem];
                 [((NSMutableArray*)_jTouchBarItems) addObject:item];
             }
         }

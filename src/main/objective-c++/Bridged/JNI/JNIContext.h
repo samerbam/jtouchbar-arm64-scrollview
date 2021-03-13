@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#include <jni.h>
+#import <JavaNativeFoundation/JavaNativeFoundation.h>
 
 #include <vector>
 #include <string>
@@ -68,6 +68,9 @@ public:
     
     static color_t CallColorMethod(JNIEnv* env, jobject target, const std::string& method);
     static image_t CallImageMethod(JNIEnv* env, jobject target, const std::string& method);
+
+    static vector<std::string> * CallStringListMethod(JNIEnv* env, jobject target, const std::string& method);
+    static vector<image_t> * CallImageListMethod(JNIEnv* env, jobject target, const std::string& method);
     
     static void HandleExceptions(JNIEnv* env);
     static void ThrowJavaException(JNIEnv* env, NSException* e);

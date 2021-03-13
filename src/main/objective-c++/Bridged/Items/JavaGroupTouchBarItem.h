@@ -11,8 +11,6 @@
 #import <Foundation/Foundation.h>
 #include <Cocoa/Cocoa.h>
 
-#include <jni.h>
-
 #include "JavaTouchBarItem.h"
 
 NS_CLASS_AVAILABLE_MAC(10_12_2)

@@ -1,4 +1,4 @@
-/**
+/*
  * JTouchBar
  *
  * Copyright (c) 2018 - 2019 thizzer.com
@@ -8,15 +8,10 @@
  *
  * @author  	M. ten Veldhuis
  */
+
 #import <Foundation/Foundation.h>
+#import "JavaTouchBarView.h"
 
-#import "JavaTouchBarItem.h"
-
-#include <jni.h>
-
-NS_CLASS_AVAILABLE_MAC(10_12_2)
-@interface JavaPopoverTouchBarItem : JavaTouchBarItem <NSTouchBarDelegate>
-
-
-
+DEPRECATED_ATTRIBUTE
+@interface JavaTouchBarSlider : JavaTouchBarView
 @end

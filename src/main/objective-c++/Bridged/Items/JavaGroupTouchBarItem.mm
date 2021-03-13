@@ -10,10 +10,7 @@
  */
 #import "JavaGroupTouchBarItem.h"
 
-#include <jni.h>
 #include <string>
-
-#include <Cocoa/Cocoa.h>
 
 #import "JNIContext.h"
 #import "JTouchBarUtils.h"
@@ -47,9 +44,9 @@
         [_jTouchBar setJavaRepr:groupTouchBar];
         
         _touchBarItem = [[NSGroupTouchBarItem alloc] initWithIdentifier:identifier];
-        ((NSGroupTouchBarItem*)_touchBarItem).groupTouchBar = [_jTouchBar createNSTouchBar];
-        ((NSGroupTouchBarItem*)_touchBarItem).groupTouchBar.delegate = self;
-        
+        [_touchBarItem setGroupTouchBar:[_jTouchBar createNSTouchBar]];
+        [[_touchBarItem groupTouchBar] setDelegate:self];
+
         env->DeleteLocalRef(groupTouchBar);
     }
     

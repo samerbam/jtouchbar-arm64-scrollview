@@ -14,13 +14,13 @@
 #include <jni.h>
 
 NS_CLASS_AVAILABLE_MAC(10_12_2)
-@interface JavaTouchBarItem : NSObject <NSScrubberDelegate, NSScrubberDataSource>
+@interface JavaTouchBarItem : NSObject
 
 @property (nonatomic) jobject javaRepr;
 
 -(void) update;
 
--(NSTouchBarItem*) getTouchBarItem; 
+-(NSTouchBarItem*) getTouchBarItem;
 
 -(NSString*) getIdentifier:(JNIEnv*)env reload:(BOOL)reload;
 -(NSString*) getIdentifier;
