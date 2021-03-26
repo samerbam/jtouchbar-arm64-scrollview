@@ -21,7 +21,6 @@
 #import "JavaTouchBarTextField.h"
 #import "JavaTouchBarScrubber.h"
 #import "JavaTouchBarSlider.h"
-#import "JavaTouchBarStepper.h"
 #import "JavaTouchBarSegmentedControl.h"
 
 @interface JavaTouchBarItem() {
@@ -200,6 +199,7 @@
 -(void) setJavaRepr:(jobject)javaRepr {
     JNIEnv *env; JNIContext context(&env);
     if(_javaRepr != NULL) {
+        [self setNativeInstancePointer:_javaRepr toInstance:nil];
         env->DeleteGlobalRef(_javaRepr);
     }
     if(javaRepr != NULL) {
