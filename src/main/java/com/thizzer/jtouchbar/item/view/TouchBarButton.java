@@ -18,23 +18,14 @@ public class TouchBarButton extends TouchBarView {
 
 	public enum ButtonType {
 		MOMENTARY_LIGHT,
-		
 		PUSH_ON_PUSH_OFF,
-		
 		TOGGLE,
-		
 		SWITCH,
-		
 		RADIO,
-		
 		MOMENTARY_CHANGE,
-		
 		ON_OFF,
-		
 		MOMENTARY_PUSH_IN,
-		
 		ACCELERATOR,
-		
 		MOMENTARY_MULTILEVEL_ACCELERATOR
 	}
 	

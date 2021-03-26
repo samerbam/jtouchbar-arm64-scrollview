@@ -1,18 +1,19 @@
 /*
  * JTouchBar
  *
- * Copyright (c) 2018 - 2019 thizzer.com
+ * Copyright (c) 2021 thizzer.com
  *
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  *
- * @author  	M. ten Veldhuis
+ * @author  	C. Klein
  */
 package com.thizzer.jtouchbar.item;
 
+import com.thizzer.jtouchbar.common.Color;
 import com.thizzer.jtouchbar.common.Image;
 
-public class SliderTouchBarItem extends TouchBarItem{// TODO: 3/8/21 native correspondent
+public class SliderTouchBarItem extends TouchBarItem {
 
     public SliderTouchBarItem(String identifier) {
         super(identifier);
@@ -27,6 +28,8 @@ public class SliderTouchBarItem extends TouchBarItem{// TODO: 3/8/21 native corr
     private Image _maxImage;
 
     private String _label;
+
+    private Color _fillColor;
 
     private SliderActionListener _actionListener;
 
@@ -89,6 +92,15 @@ public class SliderTouchBarItem extends TouchBarItem{// TODO: 3/8/21 native corr
 
     public void setLabel(String label) {
         _label = label;
+        update();
+    }
+
+    public Color getFillColor() {
+        return _fillColor;
+    }
+
+    public void setFillColor(Color color) {
+        _fillColor = color;
         update();
     }
 
