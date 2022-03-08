@@ -2,7 +2,7 @@
 
 # JTouchBar
 
-Java library for using the touchbar API on supported macbooks.
+Java library for using the Touch Bar API on arm64 Macs.
 
 Visit [Apple's](https://support.apple.com/en-us/HT207055) website for more information on the touchbar itself.
 
