@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AEFB23F27D6E7110025CBDB /* jni.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AEFB23E27D6E7110025CBDB /* jni.h */; };
+		0AEFB24127D6E7280025CBDB /* jni_md.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AEFB24027D6E7280025CBDB /* jni_md.h */; };
 		771AC5C021F7ACB900BA4322 /* JTouchBarBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 771AC5BE21F7ACB900BA4322 /* JTouchBarBridge.h */; };
 		771AC5C121F7ACB900BA4322 /* JTouchBarBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 771AC5BF21F7ACB900BA4322 /* JTouchBarBridge.mm */; };
 		77437EC21F9E849C0064C69F /* JavaTouchBarResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 77437EC01F9E849C0064C69F /* JavaTouchBarResponder.h */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AEFB23E27D6E7110025CBDB /* jni.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jni.h; sourceTree = "<group>"; };
+		0AEFB24027D6E7280025CBDB /* jni_md.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jni_md.h; sourceTree = "<group>"; };
 		771AC5BE21F7ACB900BA4322 /* JTouchBarBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JTouchBarBridge.h; path = "src/main/objective-c++/Bridged/JNI/JTouchBarBridge.h"; sourceTree = "<group>"; };
 		771AC5BF21F7ACB900BA4322 /* JTouchBarBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = JTouchBarBridge.mm; path = "src/main/objective-c++/Bridged/JNI/JTouchBarBridge.mm"; sourceTree = "<group>"; };
 		77437EC01F9E849C0064C69F /* JavaTouchBarResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JavaTouchBarResponder.h; path = "src/main/objective-c++/JavaTouchBarResponder.h"; sourceTree = SOURCE_ROOT; };
@@ -154,6 +158,8 @@
 		77EF78971F8F70DF00E7211F = {
 			isa = PBXGroup;
 			children = (
+				0AEFB24027D6E7280025CBDB /* jni_md.h */,
+				0AEFB23E27D6E7110025CBDB /* jni.h */,
 				77EF78A11F8F70DF00E7211F /* Products */,
 				77437EBD1F9E84050064C69F /* JTouchBar */,
 				77E658BC1F8F7124000832B4 /* Frameworks */,
@@ -217,6 +223,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEFB24127D6E7280025CBDB /* jni_md.h in Headers */,
+				0AEFB23F27D6E7110025CBDB /* jni.h in Headers */,
 				77437ECA1F9E84A60064C69F /* JavaTouchBar.h in Headers */,
 				778F9704207E2D89007D0982 /* JTouchBarUtils.h in Headers */,
 				77437EC21F9E849C0064C69F /* JavaTouchBarResponder.h in Headers */,
@@ -350,12 +358,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CONFIGURATION_BUILD_DIR = libs/Debug;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = N4U7269ET3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -407,12 +417,14 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CONFIGURATION_BUILD_DIR = libs/Release;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = N4U7269ET3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -424,6 +436,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -431,6 +444,7 @@
 		77EF78AA1F8F70DF00E7211F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = src/debug/resources/lib/;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -438,13 +452,13 @@
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/,
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include/darwin\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/include\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/include/darwin\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(inherited)\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre/lib\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre/lib/\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/\"",
 				);
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = (
@@ -460,6 +474,7 @@
 		77EF78AB1F8F70DF00E7211F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = src/release/resources/lib/;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -467,13 +482,13 @@
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
 					/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/,
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/include/darwin\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/include\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/include/darwin\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(inherited)\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre/lib\"",
-					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre/lib/\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib\"",
+					"\"$(LOCAL_LIBRARY_DIR)/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/\"",
 				);
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = (
