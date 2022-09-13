@@ -1,3 +1,5 @@
+# Currently does not work as expected. Please do not use.
+
 [![Build Status](https://travis-ci.org/Thizzer/JTouchBar.svg?branch=master)](https://travis-ci.org/Thizzer/JTouchBar)
 
 # JTouchBar
